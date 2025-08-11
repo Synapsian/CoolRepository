@@ -86,7 +86,7 @@ local function SlapAura()
     local Targets = {}
     for _,FoundPlayer in PlayerService:GetPlayers() do
         if FoundPlayer.Character then
-            Targets:insert(FoundPlayer)
+            table.insert(Targets,FoundPlayer)
         end
     end
 

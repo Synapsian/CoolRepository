@@ -84,7 +84,7 @@ local function SlapAura()
     if _G.SlapAura == false then return end
 
     for _,FoundPlayer in PlayerService:GetPlayers() do
-        if FoundPlayer.Character and FoundPlayer.Character.HumanoidRootPart then
+        if FoundPlayer ~= Player and FoundPlayer.Character and FoundPlayer.Character.HumanoidRootPart then
             local Distance = (Player.Character.HumanoidRootPart.Position - FoundPlayer.Character.HumanoidRootPart.Position).Magnitude
             if Distance <= 10 then
                 task.spawn(function()

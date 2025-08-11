@@ -1,7 +1,7 @@
 local Atlas = loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostDuckyy/UI-Libraries/refs/heads/main/Atlas%20UI%20Library/source.lua"))()
 
 local UI = Atlas.new({
-    Name = "Punch Tower X GUI"; -- script name (required)
+    Name = "Punch Tower X GUI V0.1"; -- script name (required)
     ConfigFolder = nil; -- folder name to save configs to, set this to nil if you want to disable configs saving
     Credit = "Made By Synapsian"; -- text to appear if player presses the "i" button on their UI (optional)
     Color = Color3.fromRGB(255,0,0); -- theme color for UI (required)
@@ -84,7 +84,7 @@ local function SlapAura()
     if _G.SlapAura == false then return end
 
     for _,FoundPlayer in PlayerService:GetPlayers() do
-        if FoundPlayer ~= Player and FoundPlayer.Character and FoundPlayer.Character.HumanoidRootPart then
+        if FoundPlayer ~= Player and FoundPlayer.Character and FoundPlayer.Character:FindFirstChild('HumanoidRootPart') then
             local Distance = (Player.Character.HumanoidRootPart.Position - FoundPlayer.Character.HumanoidRootPart.Position).Magnitude
             if Distance <= 10 then
                 task.spawn(function()

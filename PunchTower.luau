@@ -83,17 +83,15 @@ _G.SlapAura = false
 local function SlapAura()
     if _G.SlapAura == false then return end
 
-    local Targets = {}
     for _,FoundPlayer in PlayerService:GetPlayers() do
-        if FoundPlayer.Character then
-            table.insert(Targets,FoundPlayer)
+        if FoundPlayer.Character and FoundPlayer.Character.HumanoidRootPart then
+            local Distance = (Player.Character.HumanoidRootPart.Position - FoundPlayer.Character.HumanoidRootPart.Position).Magnitude
+            if Distance <= 10 then
+                task.spawn(function()
+                    Slap(FoundPlayer,10,10,10)
+                end) 
+            end
         end
-    end
-
-    for _,TargetPlayer in Targets do
-        task.spawn(function()
-            Slap(TargetPlayer,10,10,10)
-        end)
     end
 
     task.wait(0.1)
